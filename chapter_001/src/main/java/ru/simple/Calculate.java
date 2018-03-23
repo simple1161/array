@@ -6,7 +6,7 @@ package ru.simple;
 * @since 22.03.2018
 * @version 1.1
 */
-public class Calculate{
+public class Calculate {
 	/**
 	*Коструктор, вывода строки в консоль
 	*@param args - args.
@@ -20,7 +20,7 @@ public class Calculate{
 	*@param name Your name.
 	*@return Echo plus name
 	*/
-	public String echo(String name){
+	public String echo(String name) {
 		return "Echo, echo, echo : " + name;
 	}
 }
