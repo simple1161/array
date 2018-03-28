@@ -1,4 +1,4 @@
- <project>
+<project>
     <modelVersion>4.0.0</modelVersion>
     <groupId>ru.simple</groupId>
     <artifactId>junior</artifactId>
@@ -16,6 +16,7 @@
     <modules>
        <module>chapter_001</module>
      </modules>
+
 
      <dependencies>
       <dependency>
