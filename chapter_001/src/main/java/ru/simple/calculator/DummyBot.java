@@ -1,10 +1,12 @@
 package ru.simple.calculator;
+
 /**
  * Class Глупый бот
  * @author semenov
  * @since 2.04.2018
  * @version 1.0
  */
+
 public class DummyBot {
     /**
      * Отвечает на вопросы.
