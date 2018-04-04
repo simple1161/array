@@ -43,7 +43,7 @@ public class Triangle {
      *
      * @param a первый отрезок
      * @param b второй отрезок
-     * @param c третий отрезок
+     * @param c третий отрезок 
      */
     public Triangle(double a, double b, double c){
         this.a = a;
