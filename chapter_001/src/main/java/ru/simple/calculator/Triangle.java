@@ -9,89 +9,47 @@ package ru.simple.calculator;
 
 public class Triangle {
 
-    /**
-     * первый отрезок треугольника.
-     */
-    private double a;
+    private Point a;
+    private Point b;
+    private Point c;
 
-    /**
-     * Второй отрезок треугольника.
-     */
-    private double b;
-
-    /**
-     * Третий отрезок треугольника.
-     */
-    private double c;
-
-    /**
-     * Полупериметр треугольника.
-     */
-    private double perimeter = 0;
-
-    /**
-     * Площадь треугольника.
-     */
-    private double area = 0;
-
-    /**
-     * Булево значение существования треугольника.
-     */
-    private boolean triangleExist = true;
-
-    /**
-     *
-     * @param a первый отрезок
-     * @param b второй отрезок
-     * @param c третий отрезок 
-     */
-    public Triangle(double a, double b, double c){
+    public Triangle(Point a, Point b, Point c){
         this.a = a;
         this.b = b;
         this.c = c;
     }
 
-    /**
-     *
-     * @param a первый отрезок
-     * @param b второй отрезок
-     * @param c третий отрезок
-     * @return Полупериметр треугольника
-     */
-    public double period(double a, double b, double c) {
-        return (a + b + c) / 2;
+    private double period(double ab, double ac, double bc) {
+        return (ab + ac + bc) / 2;
+
     }
 
     /**
+     * Метод должен вычислить площадь треугольника.
      *
-     * @param a первый отрезок
-     * @param b второй отрезок
-     * @param c третий отрезок
-     * @return Площадь треугольника
-     */
-    public double calcHeron(double a, double b, double c){
-        if((this.a < this.b + this.c) && (this.b < this.a + this.c) && (this.c < this.a + this.b)){
-            this.area = Math.sqrt(this.perimeter * ((this.perimeter - this.a) * (this.perimeter - this.b) * (this.perimeter - this.c)));
-        }else {
-            this.triangleExist = false;
-        }
-        return this.area;
-    }
-
-    /**
-     * @return Площадь треугольника
+     * @return Вернуть прощадь, если треугольник существует или -1, если треугольника нет.
      */
     public double area() {
-        this.perimeter = period(this.a, this.b, this.c);
-        return calcHeron(this.a, this.b, this.c);
+        double rsl = -1; // мы устанавливаем значение -1, так как может быть что треугольника нет. Это значение говорит о том. что треугольника нет.
+        double ab = this.a.distanceTo(this.b);
+        double ac = this.a.distanceTo(this.c);
+        double bc = this.b.distanceTo(this.c);
+        double p = this.period(ab, ac, bc);
+        if(exist(ab, ac, bc)){
+            rsl = Math.sqrt(p * ((p - ab) * (p - ac) * (p - bc)));
+        }
+        return rsl;
     }
 
-    /**
-     *
-     * @return Возвращает true если треугольник существует.
-     */
-    public boolean existTriangle(){
-        return triangleExist;
+    private boolean exist(double ab, double ac, double bc) {
+        boolean exists = false;
+        if((ab < ac + bc) && (ac < ab + bc) && (bc < ab + ac)){
+            exists = true;
+        }else {
+            exists = false;
+        }
+        return  exists;
     }
+
 
 }
