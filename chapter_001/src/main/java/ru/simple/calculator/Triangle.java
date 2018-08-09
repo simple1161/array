@@ -3,7 +3,7 @@ package ru.simple.calculator;
 /**
  * Class Расчета площади треугольника
  * @author semenov
- * @since 9.08.2018
+ * @since 4.04.2018
  * @version 1.0
  */
 
