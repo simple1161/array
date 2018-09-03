@@ -8,12 +8,12 @@ public class Fit {
     /**
      * константа веса для мужщины.
      */
-    private final int constMan = 100;
+    private final int ConstMan = 100;
 
     /**
      * константа веса для женшины.
      */
-    private final int constWoman = 110;
+    private final int ConstWoman = 110;
 
     /**
      * общая константа.
@@ -36,7 +36,7 @@ public class Fit {
      * @return идеальный вес.
      */
     public double manWeight(double height) {
-        this.weightMan = (height - this.constMan) * this.constWeight;
+        this.weightMan = (height - this.ConstMan) * this.constWeight;
         return this.weightMan;
     }
 
@@ -46,7 +46,7 @@ public class Fit {
      * @return идеальный вес.
      */
     public double womanWeight(double height) {
-        this.weightWoman = (height - this.constWoman) * this.constWeight;
+        this.weightWoman = (height - this.ConstWoman) * this.constWeight;
         return this.weightWoman;
     }
 }
