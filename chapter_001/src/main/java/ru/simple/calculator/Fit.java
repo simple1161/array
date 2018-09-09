@@ -1,34 +1,29 @@
 package ru.simple.calculator;
 
+
 /**
- * Программа расчета идеального веса.
+ * Class расчета идеального веса
+ * @author semenov
+ * @since 9.09.2018
+ * @version 1.0
  */
+
 public class Fit {
 
     /**
      * константа веса для мужщины.
      */
-    private final int ConstMan = 100;
+    private final int CONSTMAN = 100;
 
     /**
      * константа веса для женшины.
      */
-    private final int ConstWoman = 110;
+    private final int CONSTWOMAN = 110;
 
     /**
      * общая константа.
      */
-    private final double constWeight = 1.15;
-
-    /**
-     * приватная переменная идеального веса мужщины.
-     */
-    private double weightMan;
-
-    /**
-     * приватная переменная идеального веса женшины.
-     */
-    private double weightWoman;
+    private final double CONSTWEIGTH = 1.15;
 
     /**
      * Идеальный вес для мужщины.
@@ -36,8 +31,7 @@ public class Fit {
      * @return идеальный вес.
      */
     public double manWeight(double height) {
-        this.weightMan = (height - this.ConstMan) * this.constWeight;
-        return this.weightMan;
+        return (height - this.CONSTMAN) * this.CONSTWEIGTH;
     }
 
     /**
@@ -46,7 +40,7 @@ public class Fit {
      * @return идеальный вес.
      */
     public double womanWeight(double height) {
-        this.weightWoman = (height - this.ConstWoman) * this.constWeight;
-        return this.weightWoman;
+        return (height - this.CONSTWOMAN) * this.CONSTWEIGTH;
+
     }
 }

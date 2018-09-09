@@ -4,6 +4,10 @@ import org.junit.Test;
 import static org.junit.Assert.assertThat;
 import static org.hamcrest.Matchers.closeTo;
 
+/**
+ * Class FitTest Тест для класа Fit
+ */
+
 public class FitTest {
     @Test
     public void manWeight() {
