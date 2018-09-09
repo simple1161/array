@@ -3,7 +3,7 @@ package ru.simple.calculator;
 /**
  * Class Расчета площади треугольника
  * @author semenov
- * @since 3.09.2018
+ * @since 9.09.2018
  * @version 1.0
  */
 
@@ -53,6 +53,7 @@ public class Triangle {
         double p = this.period(ab, ac, bc);
         if(exist(ab, ac, bc)){
             rsl = Math.sqrt(p * ((p - ab) * (p - ac) * (p - bc)));
+            int ff = 1;
         }
         return rsl;
     }
@@ -69,10 +70,7 @@ public class Triangle {
      */
     public boolean exist(double ab, double ac, double bc) {
         boolean exists;
-        if((ab < ac + bc) && (ac < ab + bc) && (bc < ab + ac))
-            exists = true;
-        else
-            exists = false;
+        exists = (ab < ac + bc) && (ac < ab + bc) && (bc < ab + ac);
         return  exists;
     }
 
