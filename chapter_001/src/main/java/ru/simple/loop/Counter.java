@@ -3,7 +3,7 @@ package ru.simple.loop;
 /**
  * Class 5.1. Подсчет суммы чётных чисел в диапазоне
  * @author semenov
- * @since 9.09.2018
+ * @since 17.09.2018
  * @version 1.0
  */
 public class Counter {
@@ -19,8 +19,7 @@ public class Counter {
 
         int sum = 0;
         for (int i = start; i <= finish; i++) {
-            int balance = i % 2;
-            if (balance == 0) {
+            if (i % 2 == 0) {
                 sum += i;
             }
         }
