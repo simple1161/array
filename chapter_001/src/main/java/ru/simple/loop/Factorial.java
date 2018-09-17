@@ -1,5 +1,10 @@
 package ru.simple.loop;
-
+/**
+ * Class 5.2. Класс считает фрактал
+ * @author semenov
+ * @since 17.09.2018
+ * @version 1.0
+ */
 public class Factorial {
     /**
      * Метод принимающий положительное целое число n
@@ -8,11 +13,8 @@ public class Factorial {
      */
     public int calc(int value) {
         int result = 1;
-        for (int i = 0; i <= value; i++) {
-            if(i > 0) {
-                result = result * i;
-            }
-
+        for (int i = 1; i <= value; i++) {
+            result = result * i;
         }
         return result;
      }
