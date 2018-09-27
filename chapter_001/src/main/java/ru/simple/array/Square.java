@@ -1,6 +1,6 @@
 package ru.simple.array;
 /**
- * Class 6.0 Класс заполняет массив числами от 1 до n возведенными в квадрат
+ * Class 6.0 от 1 до n возведенными в квадрат
  * @author semenov
  * @since 18.09.2018
  * @version 1.0
