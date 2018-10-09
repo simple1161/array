@@ -1,9 +1,15 @@
 package ru.simple.array;
 
 import org.junit.Test;
-
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
+
+/**
+ * Тест для класса который, сортирует методом пузырька.
+ * @author semenov
+ * @since 08.10.2018
+ * @version 1.0
+ */
 
 public class BubbleSortTest {
     @Test
