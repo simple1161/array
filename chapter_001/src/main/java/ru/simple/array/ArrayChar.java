@@ -1,5 +1,12 @@
 package ru.simple.array;
 
+/**
+ * Class 6.4 Класс проверяет, что слово начинается в определенной последовательности.
+ * @author semenov
+ * @since 08.10.2018
+ * @version 1.0
+ */
+
 public class ArrayChar {
     private char[] data;
 
