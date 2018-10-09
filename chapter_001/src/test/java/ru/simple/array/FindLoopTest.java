@@ -8,7 +8,7 @@ import static org.junit.Assert.assertThat;
  * Class 6.1 Тест для класса который переберает массив
  * @author semenov
  * @since 08.10.2018
- * @version 1.0
+ * @version 21.0
  */
 
 public class FindLoopTest {
@@ -19,7 +19,7 @@ public class FindLoopTest {
         int[] input = new int[] {5, 10, 3};
         int value = 5;
         int result = find.indexOf(input, value);
-        int expect = 0;
+        int expect = 5;
         assertThat(result, is(expect));
     }
 }
