@@ -4,6 +4,13 @@ import org.junit.Test;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 
+/**
+ * Тест для класса который, создает таблицу умножения..
+ * @author semenov
+ * @since 08.10.2018
+ * @version 1.0
+ */
+
 public class MatrixTest {
     @Test
     public void when2on2() {
