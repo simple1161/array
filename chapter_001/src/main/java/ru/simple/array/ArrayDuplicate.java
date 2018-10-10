@@ -3,7 +3,7 @@ package ru.simple.array;
 import java.util.Arrays;
 
 /**
- * Class 6.7 Класс удаляет дубликаты в массиве.
+ * Class 6.8 Класс удаляет дубликаты в массиве.
  * @author semenov
  * @since 08.10.2018
  * @version 1.0
@@ -17,16 +17,15 @@ public class ArrayDuplicate {
      * @return возвращает массив без дубликатов.
      */
     public String[] remove(String[] array){
-        int value = array.length;
-        for (int i = 0; i < value; i++){
-            for (int j = i + 1; j < value; j++){
+        for (int i = 0; i < array.length; i++){
+            for (int j = i + 1; j < array.length; j++){
                 if(array[i].equals(array[j])){
-                    value--;
-                    array[j] = array[value];
-                    array[value] = array[i];
+                    array[j] = array[array.length - 1];
+                    array = Arrays.copyOf(array, array.length - 1);
+                    j--;
                 }
             }
         }
-        return Arrays.copyOf(array, value);
+        return array;
     }
 }

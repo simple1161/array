@@ -5,7 +5,7 @@ import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 
 /**
- * Class 6.7 Тест для класса, который удаляет дубликаты в массиве.
+ * Class 6.8 Тест для класса, который удаляет дубликаты в массиве.
  * @author semenov
  * @since 08.10.2018
  * @version 1.0
@@ -13,7 +13,7 @@ import static org.junit.Assert.assertThat;
 public class ArrayDuplicateTest {
     @Test
     public void whenRemoveDuplicatesThenArrayWithoutDuplicate() {
-        String [] inputArray = new String[]{"Привет", "Мир", "Привет", "Супер", "Мир"};
+        String [] inputArray = new String[]{"Привет", "Мир", "Мир", "Супер", "Мир"};
         String [] expectArray = new String[] {"Привет", "Мир", "Супер"};
         ArrayDuplicate arrayDuplicate = new ArrayDuplicate();
         String [] resultArray = arrayDuplicate.remove(inputArray);
