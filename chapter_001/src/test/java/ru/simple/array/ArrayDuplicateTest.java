@@ -4,6 +4,12 @@ import org.junit.Test;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 
+/**
+ * Class 6.7 Тест для класса, который удаляет дубликаты в массиве.
+ * @author semenov
+ * @since 08.10.2018
+ * @version 1.0
+ */
 public class ArrayDuplicateTest {
     @Test
     public void whenRemoveDuplicatesThenArrayWithoutDuplicate() {

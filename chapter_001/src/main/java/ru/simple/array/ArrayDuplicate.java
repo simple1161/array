@@ -2,9 +2,21 @@ package ru.simple.array;
 
 import java.util.Arrays;
 
-public class ArrayDuplicate {
-    public String[] remove(String[] array){
+/**
+ * Class 6.7 Класс удаляет дубликаты в массиве.
+ * @author semenov
+ * @since 08.10.2018
+ * @version 1.0
+ */
 
+public class ArrayDuplicate {
+
+    /**
+     * Проверяет все ли диагонали массива заполнены одинаковыми элементами.
+     * @param array) массив целых чисел.
+     * @return возвращает массив без дубликатов.
+     */
+    public String[] remove(String[] array){
         int value = array.length;
         for (int i = 0; i < value; i++){
             for (int j = i + 1; j < value; j++){
@@ -12,13 +24,8 @@ public class ArrayDuplicate {
                     value--;
                     array[j] = array[value];
                     array[value] = array[i];
-
                 }
             }
-            int b = 5;
-
-
-
         }
         return Arrays.copyOf(array, value);
     }
