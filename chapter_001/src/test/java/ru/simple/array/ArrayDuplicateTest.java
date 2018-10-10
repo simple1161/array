@@ -20,4 +20,14 @@ public class ArrayDuplicateTest {
         assertThat(resultArray, is(expectArray));
         //напишите здесь тест, проверяющий удаление дубликатов строк из массива строк.
     }
+
+    @Test
+    public void whenRemoveDuplicatesThenArrayAllElementsDublicat() {
+        String [] inputArray = new String[]{"Привет", "Привет", "Привет", "Привет", "Привет"};
+        String [] expectArray = new String[] {"Привет"};
+        ArrayDuplicate arrayDuplicate = new ArrayDuplicate();
+        String [] resultArray = arrayDuplicate.remove(inputArray);
+        assertThat(resultArray, is(expectArray));
+        //напишите здесь тест, проверяющий удаление дубликатов строк из массива строк.
+    }
 }
