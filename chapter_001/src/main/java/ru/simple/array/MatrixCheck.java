@@ -1,30 +1,30 @@
 package ru.simple.array;
 
+/**
+ * Class 6.6 Класс проверяет все ли диагонали массива заполнены одинаковыми элементами.
+ * @author semenov
+ * @since 08.10.2018
+ * @version 1.0
+ */
+
 public class MatrixCheck {
+
+    /**
+     * Проверяет все ли диагонали массива заполнены одинаковыми элементами.
+     * @param data массив булевых значений.
+     * @return возвращает булево истину, если диаганали равны.
+     */
     public boolean mono(boolean[][] data) {
-        boolean rightDiagonal = true;
-        boolean leftDiagonal = true;
         boolean result = true;
-        int internal = 1;
-        boolean check = data[0][0];
+        int right = 0;
+        int left = data.length - 1;
         for (int i = 1; i < data.length; i++) {
-            if(check != data [i][internal]) {
-                rightDiagonal = false;
+            right++;
+            left--;
+            if(data[0][0] != data [i][right] || data[0][data.length - 1] != data [i][left]) {
+                result = false;
                 break;
             }
-            internal = internal + 1;
-        }
-        check = data[0][data.length - 1];
-        internal = data.length - 2;
-        for (int j = 1; j < data.length; j++) {
-            if(check != data [j][internal]) {
-                leftDiagonal = false;
-                break;
-            }
-            internal = internal - 1;
-        }
-        if((rightDiagonal == false) || (leftDiagonal == false)){
-            result = false;
         }
         return result;
     }
