@@ -77,14 +77,14 @@ public class Logic {
             for (int cell = 0; cell != table.length; cell++){
                 if(table[row][cell] == 1){
                     verticalNumber++;
-                    if(verticalNumber == table.length)
-                        result = true;
                 }
                 if(table[cell][row] == 1){
                     horizontalNumber++;
-                    if(horizontalNumber == table.length)
-                        result = true;
                 }
+            }
+            if(horizontalNumber == table.length || verticalNumber == table.length){
+                result = true;
+                break;
             }
         }
         return result;
