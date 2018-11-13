@@ -72,29 +72,24 @@ public class Logic {
         int setCell = 0;
         int verticalNumber = 0;
         int horizontalNumber = 0;
-        boolean setRowCool = true;
         boolean result = false;
-        for(int row = 0; row != table.length; row++){
-            for (int cell = 0; cell != table.length; cell++){
-                if(setRowCool){
-                    if(table[row][cell] == 1){
-                        setRowCool = false;
-                        setRow = row;
-                        setCell = cell;
-                    }
-                }
-                if(setRow == row && table[setRow][cell] == 1){
-                    verticalNumber++;
-                }
+        int row = 0;
 
-                if(setCell == cell && table[row][setCell] == 1){
+        for(; row != table.length; row++){
+            verticalNumber = 0;
+            horizontalNumber = 0;
+            for (int cell = 0; cell != table.length; cell++){
+                if(table[row][cell] == 1){
+                    verticalNumber++;
+                    if(verticalNumber == table.length)
+                        result = true;
+                }
+                if(table[cell][row] == 1){
                     horizontalNumber++;
+                    if(horizontalNumber == table.length)
+                        result = true;
                 }
             }
-        }
-
-        if(horizontalNumber == table.length || verticalNumber == table.length){
-            result = true;
         }
         return result;
     }
