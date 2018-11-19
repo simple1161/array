@@ -1,4 +1,4 @@
-package ru.tracker.start;
+package ru.simple.start;
 
 import ru.simple.models.*;
 

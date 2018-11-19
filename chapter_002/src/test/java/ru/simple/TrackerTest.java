@@ -2,6 +2,7 @@ package ru.simple;
 
 import org.junit.Test;
 import ru.simple.models.Item;
+import ru.simple.start.Tracker;
 
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertArrayEquals;
@@ -10,7 +11,7 @@ import static org.junit.Assert.assertThat;
 public class TrackerTest {
     @Test
     public void whenReplaceNameThenReturnNewName() {
-        ru.tracker.start.Tracker tracker = new ru.tracker.start.Tracker();
+        Tracker tracker = new Tracker();
         Item previous = new Item("test1","testDescription",123L);
         tracker.add(previous);
         Item next = new Item("test2","testDescription2",1234L);
@@ -21,7 +22,7 @@ public class TrackerTest {
 
     @Test
     public void whenFindId() {
-        ru.tracker.start.Tracker tracker = new ru.tracker.start.Tracker();
+        Tracker tracker = new Tracker();
         Item previous = new Item("test1","testDescription",123L);
         tracker.add(previous);
         Item next = new Item("test2","testDescription2",1234L);
@@ -32,7 +33,7 @@ public class TrackerTest {
 
     @Test
     public void whenDelete() {
-        ru.tracker.start.Tracker tracker = new ru.tracker.start.Tracker();
+        Tracker tracker = new Tracker();
         Item previous = new Item("test1","testDescription",123L);
         tracker.add(previous);
         Item next = new Item("test2","testDescription2",1234L);
@@ -47,7 +48,7 @@ public class TrackerTest {
 
     @Test
     public void whenGetAll() {
-        ru.tracker.start.Tracker tracker = new ru.tracker.start.Tracker();
+        Tracker tracker = new Tracker();
         Item previous = new Item("test1","testDescription",123L);
         tracker.add(previous);
         Item next = new Item("test2","testDescription2",1234L);
@@ -60,7 +61,7 @@ public class TrackerTest {
 
     @Test
     public void whenFindName() {
-        ru.tracker.start.Tracker tracker = new ru.tracker.start.Tracker();
+        Tracker tracker = new Tracker();
         Item previous = new Item("test1","testDescription",123L);
         tracker.add(previous);
         Item next = new Item("test1","testDescription2",1234L);
