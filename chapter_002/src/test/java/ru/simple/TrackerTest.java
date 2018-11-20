@@ -38,6 +38,8 @@ public class TrackerTest {
         tracker.add(previous);
         Item next = new Item("test2","testDescription2",1234L);
         tracker.add(next);
+        Item second = new Item("test3","testDescription3",1234L);
+        tracker.add(second);
         String id = next.getId();
         tracker.delete(next.getId());
         Item item = tracker.findById(id);

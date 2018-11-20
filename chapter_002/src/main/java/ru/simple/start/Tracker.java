@@ -6,12 +6,11 @@ import java.util.Random;
 import java.util.Arrays;
 
 public class Tracker {
-    Item [] items = new Item[0];
+    private Item [] items = new Item[100];
     private int position = 0;
     private static final Random RN = new Random();
 
     public Item add(Item item){
-        items = Arrays.copyOf(items, items.length + 1);
         item.setId(generateId());
         this.items[position++] = item;
         return item;
@@ -65,11 +64,11 @@ public class Tracker {
     public void delete(String id){
         for(int i=0; i<items.length; i++){
             if(items[i] != null && items[i].getId().equals(id)){
-                if(items[i].getId().equals(id) && !items[i].getId().equals(items[items.length - 1].getId())){
-                    items[i] = items[items.length - 1];
+                if (!items[0].getId().equals(id)){
+                    items[i] = items[0];
                 }
-                items = Arrays.copyOf(items, items.length - 1);
-                position--;
+                System.arraycopy(items, 1, items, 0, items.length-1);
+                break;
             }
         }
 
