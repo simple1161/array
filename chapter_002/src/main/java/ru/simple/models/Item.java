@@ -1,6 +1,8 @@
 package ru.simple.models;
 
-public class Item{
+import java.util.Random;
+
+public class Item {
         private String id;
 
         public String name;
@@ -9,31 +11,33 @@ public class Item{
 
         public long create;
 
-        Item(){}
+        Item() { }
 
         public Item(String name, String description, long create){
+                Random random = new Random();
+                this.id  = String.valueOf(random.nextInt() + System.currentTimeMillis());
                 this.name = name;
                 this.description = description;
                 this.create = create;
         }
 
-        public String getName(){
+        public String getName() {
                 return this.name;
         }
 
-        public String getDescription(){
+        public String getDescription() {
                 return this.description;
         }
 
-        public long getCreate(){
+        public long getCreate() {
                 return this.create;
         }
 
-        public void setId(String id){
+        public void setId(String id) {
                 this.id = id;
         }
 
-        public String getId(){
+        public String getId() {
                 return this.id;
         }
 
