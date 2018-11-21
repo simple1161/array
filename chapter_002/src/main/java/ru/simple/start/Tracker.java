@@ -33,9 +33,7 @@ public class Tracker {
 
     public Item[] showAll(){
         Item[] result = new Item[position];
-        for(int index = 0; index != position; index++){
-            result[index] = this.items[index];
-        }
+        result = Arrays.copyOf(items, position);
         return result;
     }
 
@@ -52,27 +50,31 @@ public class Tracker {
         return result;
     }
 
-    public void replace(String id, Item item){
+    public Boolean replace(String id, Item item){
         item.setId(id);
+        boolean execute = false;
         for(int i=0; i<items.length; i++){
             if(items[i] != null && items[i].getId().equals(id)){
                 items[i] = item;
+                execute = true;
             }
         }
+        return execute;
     }
 
-    public void delete(String id){
+    public Boolean delete(String id){
+        boolean execute = false;
         for(int i=0; i<items.length; i++){
             if(items[i] != null && items[i].getId().equals(id)){
                 if (!items[0].getId().equals(id)){
                     items[i] = items[0];
                 }
                 System.arraycopy(items, 1, items, 0, items.length-1);
+                execute = true;
                 break;
             }
         }
-
-
+        return execute;
     }
 }
 

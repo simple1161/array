@@ -15,9 +15,7 @@ public class TrackerTest {
         Item previous = new Item("test1","testDescription",123L);
         tracker.add(previous);
         Item next = new Item("test2","testDescription2",1234L);
-        tracker.replace(previous.getId(), next);
-        Item[] items = tracker.findByName(next.name);
-        assertThat(items[0].name, is("test2"));
+        assertThat(tracker.replace(previous.getId(), next), is(true));
     }
 
     @Test
@@ -40,12 +38,7 @@ public class TrackerTest {
         tracker.add(next);
         Item second = new Item("test3","testDescription3",1234L);
         tracker.add(second);
-        String id = next.getId();
-        tracker.delete(next.getId());
-        Item item = tracker.findById(id);
-        if(item == null) id = "deleted";
-        else id = "exists";
-        assertThat(id, is("deleted"));
+        assertThat(tracker.delete(next.getId()), is(true));
     }
 
     @Test
