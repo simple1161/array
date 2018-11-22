@@ -13,12 +13,12 @@ public class Item {
 
         Item() { }
 
-        public Item(String name, String description, long create){
+        public Item(String name, String description){
                 Random random = new Random();
                 this.id  = String.valueOf(random.nextInt() + System.currentTimeMillis());
                 this.name = name;
                 this.description = description;
-                this.create = create;
+                this.create = System.currentTimeMillis();
         }
 
         public String getName() {

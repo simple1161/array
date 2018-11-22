@@ -1,6 +1,10 @@
 package ru.simple.start;
 import ru.simple.models.*;
+
+import java.lang.reflect.Array;
 import java.util.Arrays;
+
+import static java.util.Arrays.copyOf;
 
 public class Tracker {
     private Item[] items = new Item[100];
@@ -23,7 +27,7 @@ public class Tracker {
     }
 
     public Item[] showAll() {
-        return Arrays.copyOf(items, position);
+        return copyOf(items, position);
     }
 
     public Item[] findByName(String key) {
@@ -31,11 +35,10 @@ public class Tracker {
         int index = 0;
         for (Item item: items) {
             if (item != null && item.getName().equals(key)) {
-                result[index] = item;
-                index++;
+                result[index++] = item;
             }
         }
-        return result;
+        return Arrays.copyOf(result, index);
     }
 
     public boolean replace(String id, Item item) {
