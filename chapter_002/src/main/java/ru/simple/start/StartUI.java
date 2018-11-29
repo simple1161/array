@@ -1,44 +1,13 @@
 package ru.simple.start;
 import ru.simple.models.Item;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class StartUI {
     private Input input;
     private Tracker tracker;
-
-    /**
-     * Константа меню для добавления новой заявки.
-     */
-    private static final String ADD = "0";
-
-    /**
-     * Константа для показа всех заявок.
-     */
-    private static final String SHOW = "1";
-
-    /**
-     * Константа для редактирования заявок.
-     */
-    private static final String EDIT = "2";
-
-    /**
-     * Константа для редактирования заявок.
-     */
-    private static final String DELETE = "3";
-
-    /**
-     * Константа для поиска по id заявоки.
-     */
-    private static final String FINDID = "4";
-
-    /**
-     * онстанта для поиска по name заявоки.
-     */
-    private static final String FINDNAME = "5";
-
-    /**
-     * Константа для выхода из меню.
-     */
-    private static final String EXIT = "6";
+    private List<UserAction> actions = new ArrayList<>();
 
     public StartUI(Tracker tracker, Input input) {
         this.input = input;
@@ -46,92 +15,140 @@ public class StartUI {
     }
 
     public void init() {
-        boolean exit = false;
-        while (!exit) {
-            showMenu();
-            String answer = this.input.ask("Введите пункт меню : ");
-            switch (answer) {
-                case ADD: this.createItem();
-                    break;
-                case SHOW: this.showAllItems();
-                    break;
-                case EDIT: this.editItem();
-                    break;
-                case DELETE: this.deleteItem();
-                    break;
-                case FINDID: this.findId();
-                    break;
-                case FINDNAME: this.findName();
-                    break;
-                case EXIT: exit = true;
-                    break;
-                default: exit = true;
+        fillActions();
+        MenuTracker menu = new MenuTracker( this.input, this.tracker, this.actions);
+        do {
+            menu.show();
+            menu.select(this.input.ask("Введите пункт меню : "));
+        } while (!"y".equals(this.input.ask("Exit?(y): ")));
+    }
 
+    private static class AddItem implements UserAction{
+        public int key(){
+            return  0;
+        }
+
+        public void execute(Input input, Tracker tracker){
+            String name = input.ask("Введите имя заявки :");
+            String desc = input.ask("Введите описание заявки :");
+            tracker.add(new Item(name, desc));
+        }
+
+        public String info(){
+            return String.format("%s. %s", this.key(), "Add new item");
+        }
+
+    }
+
+    private static class ShowItem implements UserAction{
+        public int key(){
+            return  1;
+        }
+
+        public void execute(Input input, Tracker tracker){
+            System.out.println("------------ Отображение всех заявок --------------");
+            Item[] items = tracker.showAll();
+            if (items.length != 0) {
+                for (Item item: items) {
+                    System.out.println("Название заявки: "  + item.getName() + ", " + "Описание заявки: "  + item.getDescription() + ", "  + "id заявки: "  + item.getId());
+                }
+            } else {
+                System.out.println("Нет доступных заявок");
             }
         }
-    }
 
-    public static void showMenu() {
-        String[] menu = {"0. Add new Item", "1. Show all items", "2. Edit item", "3. Delete item", "4. Find item by Id", "5. Find items by name", "6. Exit Program"};
-        for (String str: menu) {
-            System.out.println(str);
+        public String info(){
+            return String.format("%s. %s", this.key(), "Show item");
         }
+
     }
 
-    public void createItem() {
-        System.out.println("------------ Добавление новой заявки --------------");
-        String name = this.input.ask("Введите имя заявки :");
-        String desc = this.input.ask("Введите описание заявки :");
-        Item item = new Item(name, desc);
-        this.tracker.add(item);
-        System.out.println("------------ Новая заявка с getId : " + item.getId() + "-----------");
+    private static class EditItem implements UserAction{
+        public int key(){
+            return  2;
+        }
+
+        public void execute(Input input, Tracker tracker){
+            System.out.println("------------ Редоктирование заявки --------------");
+            String id = input.ask("Введите id заявки :");
+            String name = input.ask("Введите имя заявки :");
+            String desc = input.ask("Введите описание заявки :");
+            Item item = new Item(name, desc);
+            tracker.replace(id, item);
+        }
+
+        public String info(){
+            return String.format("%s. %s", this.key(), "Edit item");
+        }
+
     }
 
-    public void showAllItems() {
-        System.out.println("------------ Отображение всех заявок --------------");
-        Item[] items = this.tracker.showAll();
-        if (items.length != 0) {
-            for (Item item: items) {
-                System.out.println("Название заявки: "  + item.getName() + ", " + "Описание заявки: "  + item.getDescription() + ", "  + "id заявки: "  + item.getId());
+    private static class DeleteItem implements UserAction{
+        public int key(){
+            return  3;
+        }
+
+        public void execute(Input input, Tracker tracker){
+            System.out.println("------------ Удаление заявки --------------");
+            String id = input.ask("Введите id заявки :");
+            tracker.delete(id);
+        }
+
+        public String info(){
+            return String.format("%s. %s", this.key(), "Delete item");
+        }
+
+    }
+
+    private static class FindId implements UserAction{
+        public int key(){
+            return  4;
+        }
+
+        public void execute(Input input, Tracker tracker){
+            System.out.println("------------Поиск заявки по id --------------");
+            String id = input.ask("Введите id заявки :");
+            Item item = tracker.findById(id);
+            System.out.println("Название заявки: "  + item.getName() + ", " + "Описание заявки: "  + item.getDescription() + ", "  + "id заявки: "  + item.getId());
+        }
+
+        public String info(){
+            return String.format("%s. %s", this.key(), "Find item by Id");
+        }
+
+    }
+
+    private static class FindName implements UserAction{
+        public int key(){
+            return  5;
+        }
+
+        public void execute(Input input, Tracker tracker){
+            System.out.println("Поиск по имени заявки.");
+            String name = input.ask("Введите имя заявки :");
+            Item[] items = tracker.findByName(name);
+            if (items.length != 0) {
+                for (Item item: items) {
+                    System.out.println("Название заявки: "  + item.getName() + ", " + "Описание заявки: "  + item.getDescription() + ", "  + "id заявки: "  + item.getId());
+                }
+            } else {
+                System.out.println("Нет доступных заявок");
             }
-        } else {
-            System.out.println("Нет доступных заявок");
         }
-    }
 
-    public void editItem() {
-        System.out.println("------------ Редоктирование заявки --------------");
-        String id = this.input.ask("Введите id заявки :");
-        String name = this.input.ask("Введите имя заявки :");
-        String desc = this.input.ask("Введите описание заявки :");
-        Item item = new Item(name, desc);
-        tracker.replace(id, item);
-    }
-
-    public void deleteItem() {
-        System.out.println("------------ Удаление заявки --------------");
-        String id = this.input.ask("Введите id заявки :");
-        tracker.delete(id);
-    }
-
-    public void findId() {
-        System.out.println("------------Поиск заявки по id --------------");
-        String id = this.input.ask("Введите id заявки :");
-        Item item = tracker.findById(id);
-        System.out.println("Название заявки: "  + item.getName() + ", " + "Описание заявки: "  + item.getDescription() + ", "  + "id заявки: "  + item.getId());
-    }
-
-    public void findName() {
-        System.out.println("------------ Поиск по имени заявки --------------");
-        String name = this.input.ask("Введите имя заявки :");
-        Item[] items = tracker.findByName(name);
-        if (items.length != 0) {
-            for (Item item: items) {
-                System.out.println("Название заявки: "  + item.getName() + ", " + "Описание заявки: "  + item.getDescription() + ", "  + "id заявки: "  + item.getId());
-            }
-        } else {
-            System.out.println("Нет доступных заявок");
+        public String info(){
+            return String.format("%s. %s", this.key(), "Find items by name");
         }
+
+    }
+
+    public void fillActions() {
+        this.actions.add(new StartUI.AddItem());
+        this.actions.add(new StartUI.ShowItem());
+        this.actions.add(new StartUI.EditItem());
+        this.actions.add(new StartUI.DeleteItem());
+        this.actions.add(new StartUI.FindId());
+        this.actions.add(new StartUI.FindName());
     }
 
     public static void main(String[] args) {

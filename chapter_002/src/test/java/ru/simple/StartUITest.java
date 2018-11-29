@@ -36,7 +36,7 @@ public class StartUITest {
     @Test
     public void whenUserAddItem() {
         Tracker tracker = new Tracker();
-        Input input = new StubInput(new String[]{"0", "test name", "desc", "6"});
+        Input input = new StubInput(new String[]{"0", "test name", "desc", "y"});
         new StartUI(tracker, input).init();
         assertThat(tracker.showAll()[0].getName(), is("test name"));
     }
@@ -72,7 +72,7 @@ public class StartUITest {
         tracker.add(previous);
         Item next = new Item("test2", "testDescription2");
         tracker.add(next);
-        Input input = new StubInput(new String[]{"1", "6"});
+        Input input = new StubInput(new String[]{"1", "y"});
         new StartUI(tracker, input).init();
         Item[] items = new Item[2];
         items[0] = previous;
@@ -87,7 +87,7 @@ public class StartUITest {
         tracker.add(previous);
         Item next = new Item("test2", "testDescription2");
         tracker.add(next);
-        Input input = new StubInput(new String[]{"2", previous.getId(), "new name", "new desc", "6"});
+        Input input = new StubInput(new String[]{"2", previous.getId(), "new name", "new desc", "y"});
         new StartUI(tracker, input).init();
         assertThat(tracker.findByName("new name")[0].getName(), is("new name"));
     }
@@ -99,7 +99,7 @@ public class StartUITest {
         tracker.add(previous);
         Item next = new Item("test2", "testDescription2");
         tracker.add(next);
-        Input input = new StubInput(new String[]{"5", previous.getName(), "6"});
+        Input input = new StubInput(new String[]{"5", previous.getName(), "y"});
         new StartUI(tracker, input).init();
         assertThat(tracker.findByName("test2")[0].getName(), is("test2"));
     }
@@ -110,10 +110,10 @@ public class StartUITest {
         tracker.add(previous);
         Item next = new Item("test2", "testDescription2");
         tracker.add(next);
-        Input input = new StubInput(new String[]{"5", previous.getName(), "6"});
+        Input input = new StubInput(new String[]{"5", previous.getName(), "y"});
         new StartUI(tracker, input).init();
         String[] sp = this.out.toString().split("\\r\\n");
-        assertThat(sp[8], is("Название заявки:" + " " + previous.getName() + "," + " Описание заявки:" + " " + previous.getDescription() + "," + " id заявки:" + " " + previous.getId()));
+        assertThat(sp[7], is("Название заявки:" + " " + previous.getName() + "," + " Описание заявки:" + " " + previous.getDescription() + "," + " id заявки:" + " " + previous.getId()));
     }
 
     @Test
@@ -123,12 +123,12 @@ public class StartUITest {
         tracker.add(previous);
         Item next = new Item("test2", "testDescription2");
         tracker.add(next);
-        Input input = new StubInput(new String[]{"1", "6"});
+        Input input = new StubInput(new String[]{"1", "y"});
         new StartUI(tracker, input).init();
         String[] sp = this.out.toString().split("\\r\\n");
         String[] actual = new String[2];
-        actual[0] = sp[8];
-        actual[1] = sp[9];
+        actual[0] = sp[7];
+        actual[1] = sp[8];
         String[] items = new String[2];
         items[0] = "Название заявки:" + " " + previous.getName() + "," + " Описание заявки:" + " " + previous.getDescription() + "," + " id заявки:" + " " + previous.getId();
         items[1] = "Название заявки:" + " " + next.getName() + "," + " Описание заявки:" + " " + next.getDescription() + "," + " id заявки:" + " " + next.getId();
