@@ -1,4 +1,7 @@
-package ru.simple.start;
+package ru.simple.operations;
+
+import ru.simple.start.Input;
+import ru.simple.start.Tracker;
 
 public interface UserAction {
     /**

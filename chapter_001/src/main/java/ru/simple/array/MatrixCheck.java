@@ -21,7 +21,7 @@ public class MatrixCheck {
         for (int i = 1; i < data.length; i++) {
             right++;
             left--;
-            if(data[0][0] != data [i][right] || data[0][data.length - 1] != data [i][left]) {
+            if (data[0][0] != data [i][right] || data[0][data.length - 1] != data [i][left]) {
                 result = false;
                 break;
             }

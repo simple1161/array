@@ -1,7 +1,6 @@
 package ru.simple.start;
 import ru.simple.models.*;
 
-import java.lang.reflect.Array;
 import java.util.Arrays;
 
 import static java.util.Arrays.copyOf;
@@ -62,6 +61,7 @@ public class Tracker {
                 }
                 System.arraycopy(items, 1, items, 0, items.length - 1);
                 execute = true;
+                position--;
                 break;
             }
         }

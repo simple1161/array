@@ -15,11 +15,11 @@ public class Paint {
     public String rightTrl(int height) {
         StringBuilder screen = new StringBuilder();
         int weight = height;
-        for (int column = 0; column != height; column++){
-            for (int row = 0; row != weight; row++){
-                if(column >= row){
+        for (int column = 0; column != height; column++) {
+            for (int row = 0; row != weight; row++) {
+                if (column >= row) {
                     screen.append("^");
-                }else {
+                } else {
                     screen.append(" ");
                 }
             }
@@ -35,11 +35,11 @@ public class Paint {
     public String leftTrl(int height) {
         StringBuilder screen = new StringBuilder();
         int weight = height;
-        for (int column = 0; column != height; column++){
-            for (int row = 0; row != weight; row++){
-                if( row >= weight - column - 1) {
+        for (int column = 0; column != height; column++) {
+            for (int row = 0; row != weight; row++) {
+                if (row >= weight - column - 1) {
                     screen.append("^");
-                }else {
+                } else {
                     screen.append(" ");
                 }
             }
@@ -55,11 +55,11 @@ public class Paint {
     public String pyramid(int height) {
         StringBuilder screen = new StringBuilder();
         int weight = height + height - 1;
-        for (int column = 0; column != height; column++){
-            for (int row = 0; row != weight; row++){
-                if(row >= height - column - 1 && row <= height + column - 1){
+        for (int column = 0; column != height; column++) {
+            for (int row = 0; row != weight; row++) {
+                if (row >= height - column - 1 && row <= height + column - 1) {
                     screen.append("^");
-                }else {
+                } else {
                     screen.append(" ");
                 }
             }

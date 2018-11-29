@@ -20,8 +20,8 @@ public class Max {
      * @param second второе число
      * @return Возвращает максимальное число
      */
-    public int maxValue(int first, int second){
-        return max = first > second ? first : second;
+    public int maxValue(int first, int second) {
+        return  first > second ? first : second;
     }
 
     /**
@@ -31,7 +31,7 @@ public class Max {
      * @param third третье число
      * @return Возвращает максимальное число.
      */
-    public int max(int first, int second, int third){
+    public int max(int first, int second, int third) {
         return Math.max(first, Math.max(second, third));
     }
 

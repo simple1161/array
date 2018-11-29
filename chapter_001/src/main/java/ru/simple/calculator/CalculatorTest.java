@@ -15,7 +15,7 @@ public class CalculatorTest {
     }
 
     @Test
-    public void whenAddSubtractOneThenTwo(){
+    public void whenAddSubtractOneThenTwo() {
         Calculator calc = new Calculator();
         calc.subtract(1D, 1D);
         double result = calc.getResult();
@@ -24,7 +24,7 @@ public class CalculatorTest {
     }
 
     @Test
-    public void whenAddDivOneThenTwo(){
+    public void whenAddDivOneThenTwo() {
         Calculator calc = new Calculator();
         calc.div(1D, 1D);
         double result = calc.getResult();
@@ -33,7 +33,7 @@ public class CalculatorTest {
     }
 
     @Test
-    public void whenAddMultipleOneThenTwo(){
+    public void whenAddMultipleOneThenTwo() {
         Calculator calc = new Calculator();
         calc.multiple(1D, 1D);
         double result = calc.getResult();

@@ -18,7 +18,7 @@ public class Triangle {
      @param b Координаты второй точки
      @param c Координаты третей точки
      */
-    public Triangle(Point a, Point b, Point c){
+    public Triangle(Point a, Point b, Point c) {
         this.a = a;
         this.b = b;
         this.c = c;
@@ -51,7 +51,7 @@ public class Triangle {
         double ac = this.a.distanceTo(this.c);
         double bc = this.b.distanceTo(this.c);
         double p = this.period(ab, ac, bc);
-        if(exist(ab, ac, bc)){
+        if (exist(ab, ac, bc)) {
             rsl = Math.sqrt(p * ((p - ab) * (p - ac) * (p - bc)));
             int ff = 1;
         }

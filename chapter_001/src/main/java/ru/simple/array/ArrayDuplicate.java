@@ -16,11 +16,11 @@ public class ArrayDuplicate {
      * @param array) массив целых чисел.
      * @return возвращает массив без дубликатов.
      */
-    public String[] remove(String[] array){
+    public String[] remove(String[] array) {
         int value = array.length;
-        for (int i = 0; i < value; i++){
-            for (int j = i + 1; j < value; j++){
-                if(array[i].equals(array[j])){
+        for (int i = 0; i < value; i++) {
+            for (int j = i + 1; j < value; j++) {
+                if (array[i].equals(array[j])) {
                     value--;
                     array[j] = array[value];
                     array[value] = array[i];

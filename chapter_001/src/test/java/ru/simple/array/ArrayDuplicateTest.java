@@ -13,20 +13,20 @@ import static org.junit.Assert.assertThat;
 public class ArrayDuplicateTest {
     @Test
     public void whenRemoveDuplicatesThenArrayWithoutDuplicate() {
-        String [] inputArray = new String[]{"Привет", "Мир", "Мир", "Супер", "Мир"};
-        String [] expectArray = new String[] {"Привет", "Мир", "Супер"};
+        String[] inputArray = new String[] {"Привет", "Мир", "Мир", "Супер", "Мир"};
+        String[] expectArray = new String[] {"Привет", "Мир", "Супер"};
         ArrayDuplicate arrayDuplicate = new ArrayDuplicate();
-        String [] resultArray = arrayDuplicate.remove(inputArray);
+        String[] resultArray = arrayDuplicate.remove(inputArray);
         assertThat(resultArray, is(expectArray));
         //напишите здесь тест, проверяющий удаление дубликатов строк из массива строк.
     }
 
     @Test
     public void whenRemoveDuplicatesThenArrayAllElementsDublicat() {
-        String [] inputArray = new String[]{"Привет", "Привет", "Привет", "Привет", "Привет"};
-        String [] expectArray = new String[] {"Привет"};
+        String[] inputArray = new String[]{"Привет", "Привет", "Привет", "Привет", "Привет"};
+        String[] expectArray = new String[] {"Привет"};
         ArrayDuplicate arrayDuplicate = new ArrayDuplicate();
-        String [] resultArray = arrayDuplicate.remove(inputArray);
+        String[] resultArray = arrayDuplicate.remove(inputArray);
         assertThat(resultArray, is(expectArray));
         //напишите здесь тест, проверяющий удаление дубликатов строк из массива строк.
     }
