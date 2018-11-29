@@ -48,7 +48,7 @@ public class StartUITest {
         tracker.add(previous);
         Item next = new Item("test2", "testDescription2");
         tracker.add(next);
-        Input input = new StubInput(new String[]{"4", previous.getId(), "6"});
+        Input input = new StubInput(new String[]{"4", previous.getId(), "y"});
         new StartUI(tracker, input).init();
         assertThat(tracker.findById(previous.getId()).getId(), is(previous.getId()));
     }
@@ -60,7 +60,7 @@ public class StartUITest {
         tracker.add(previous);
         Item next = new Item("test2", "testDescription2");
         tracker.add(next);
-        Input input = new StubInput(new String[]{"3", previous.getId(), "6"});
+        Input input = new StubInput(new String[]{"3", previous.getId(), "y"});
         new StartUI(tracker, input).init();
         assertThat(tracker.delete(previous.getId()), is(false));
     }
