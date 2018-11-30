@@ -3,11 +3,11 @@ package ru.simple;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import ru.simple.models.Item;
-import ru.simple.start.Input;
-import ru.simple.start.StartUI;
-import ru.simple.start.StubInput;
-import ru.simple.start.Tracker;
+import ru.simple.tracker.models.Item;
+import ru.simple.tracker.start.Input;
+import ru.simple.tracker.start.StartUI;
+import ru.simple.tracker.start.StubInput;
+import ru.simple.tracker.start.Tracker;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;

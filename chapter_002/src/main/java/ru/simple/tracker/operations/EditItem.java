@@ -1,8 +1,8 @@
-package ru.simple.operations;
+package ru.simple.tracker.operations;
 
-import ru.simple.models.Item;
-import ru.simple.start.Input;
-import ru.simple.start.Tracker;
+import ru.simple.tracker.models.Item;
+import ru.simple.tracker.start.Input;
+import ru.simple.tracker.start.Tracker;
 
 public class EditItem implements UserAction {
     public int key(){
@@ -15,7 +15,11 @@ public class EditItem implements UserAction {
         String name = input.ask("Введите имя заявки :");
         String desc = input.ask("Введите описание заявки :");
         Item item = new Item(name, desc);
-        tracker.replace(id, item);
+        if(tracker.replace(id, item)){
+            System.out.println("------------ Заявка отредактирована --------------");
+        }else {
+            System.out.println("------------ Заявка не отредактирована --------------");
+        }
     }
 
     public String info(){

@@ -1,5 +1,5 @@
-package ru.simple.start;
-import ru.simple.models.*;
+package ru.simple.tracker.start;
+import ru.simple.tracker.models.Item;
 
 import java.util.Arrays;
 

@@ -1,7 +1,7 @@
-package ru.simple.operations;
+package ru.simple.tracker.operations;
 
-import ru.simple.start.Input;
-import ru.simple.start.Tracker;
+import ru.simple.tracker.start.Input;
+import ru.simple.tracker.start.Tracker;
 
 public interface UserAction {
     /**

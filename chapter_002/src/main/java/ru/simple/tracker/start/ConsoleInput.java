@@ -1,4 +1,4 @@
-package ru.simple.start;
+package ru.simple.tracker.start;
 
 import java.util.Scanner;
 
