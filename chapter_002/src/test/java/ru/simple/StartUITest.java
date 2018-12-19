@@ -4,10 +4,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import ru.simple.tracker.models.Item;
-import ru.simple.tracker.start.Input;
-import ru.simple.tracker.start.StartUI;
-import ru.simple.tracker.start.StubInput;
-import ru.simple.tracker.start.Tracker;
+import ru.simple.tracker.start.*;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
@@ -34,7 +31,7 @@ public class StartUITest {
     }
 
     @Test
-    public void whenUserAddItem() {
+    public void whenUserAddItem() throws MenuOutException {
         Tracker tracker = new Tracker();
         Input input = new StubInput(new String[]{"0", "test name", "desc", "y"});
         new StartUI(tracker, input).init();
@@ -42,7 +39,7 @@ public class StartUITest {
     }
 
     @Test
-    public void whenUserFundId() {
+    public void whenUserFundId() throws MenuOutException {
         Tracker tracker = new Tracker();     // создаём Tracker
         Item previous = new Item("test1", "testDescription");
         tracker.add(previous);
@@ -54,7 +51,7 @@ public class StartUITest {
     }
 
     @Test
-    public void whenUserDeleteItem() {
+    public void whenUserDeleteItem() throws MenuOutException {
         Tracker tracker = new Tracker();
         Item previous = new Item("test1", "testDescription");
         tracker.add(previous);
@@ -66,7 +63,7 @@ public class StartUITest {
     }
 
     @Test
-    public void whenUserShowAll() {
+    public void whenUserShowAll() throws MenuOutException {
         Tracker tracker = new Tracker();
         Item previous = new Item("test1", "testDescription");
         tracker.add(previous);
@@ -81,7 +78,7 @@ public class StartUITest {
     }
 
     @Test
-    public void whenUserEditItem() {
+    public void whenUserEditItem() throws MenuOutException {
         Tracker tracker = new Tracker();
         Item previous = new Item("test1", "testDescription");
         tracker.add(previous);
@@ -93,7 +90,7 @@ public class StartUITest {
     }
 
     @Test
-    public void whenUserFindName() {
+    public void whenUserFindName() throws MenuOutException{
         Tracker tracker = new Tracker();
         Item previous = new Item("test1", "testDescription");
         tracker.add(previous);
@@ -104,7 +101,7 @@ public class StartUITest {
         assertThat(tracker.findByName("test2")[0].getName(), is("test2"));
     }
     @Test
-    public void whenPrintUserFindName() {
+    public void whenPrintUserFindName() throws MenuOutException{
         Tracker tracker = new Tracker();
         Item previous = new Item("test1", "testDescription");
         tracker.add(previous);
@@ -117,7 +114,7 @@ public class StartUITest {
     }
 
     @Test
-    public void whenPrintUserShowAll() {
+    public void whenPrintUserShowAll() throws MenuOutException{
         Tracker tracker = new Tracker();
         Item previous = new Item("test1", "testDescription");
         tracker.add(previous);

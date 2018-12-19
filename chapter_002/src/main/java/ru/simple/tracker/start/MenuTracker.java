@@ -33,8 +33,8 @@ public class MenuTracker {
 
     }
 
-    public void select(String key) {
-        this.actions.get(Integer.valueOf(key)).execute(this.input, this.tracker);
+    public void select(int key) {
+        this.actions.get(key).execute(this.input, this.tracker);
     }
 
     public void fillActions() {
