@@ -56,7 +56,7 @@ public class MenuTracker {
         }
     }
 
-    public int getCountItem(){
+    public int getCount(){
         return actions.size();
     }
 }
