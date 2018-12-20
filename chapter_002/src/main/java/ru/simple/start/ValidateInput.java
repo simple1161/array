@@ -1,4 +1,4 @@
-package ru.simple.start;
+package ru.simple.tracker.start;
 
 public class ValidateInput extends ConsoleInput {
     public int ask(String question, int[] range) {
@@ -18,4 +18,3 @@ public class ValidateInput extends ConsoleInput {
         return value;
     }
 }
-

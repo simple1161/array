@@ -1,4 +1,4 @@
-package ru.simple.start;
+package ru.simple.tracker.start;
 
 public class MenuOutException extends RuntimeException  {
     public MenuOutException(){
