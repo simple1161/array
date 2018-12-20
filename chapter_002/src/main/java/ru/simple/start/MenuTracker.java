@@ -55,4 +55,8 @@ public class MenuTracker {
             }
         }
     }
+
+    public int getCountItem(){
+        return actions.size();
+    }
 }
