@@ -55,8 +55,4 @@ public class MenuTracker {
             }
         }
     }
-
-    public int getCount(){
-        return actions.size();
-    }
 }

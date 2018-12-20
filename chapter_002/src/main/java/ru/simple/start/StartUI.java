@@ -3,27 +3,24 @@ package ru.simple.start;
 public class StartUI {
     private Input input;
     private Tracker tracker;
-    private int[] ranges;
+    private int[] ranges = new int[] {0, 1, 2, 3, 4};
+
 
     public StartUI(Tracker tracker, Input input) {
         this.input = input;
         this.tracker = tracker;
     }
 
-    public void init() {
+    public void init() throws MenuOutException {
         MenuTracker menu = new MenuTracker(this.input, this.tracker);
         menu.fillActions();
         do {
             menu.show();
-            ranges = new int[menu.getCount()];
-            for(int i=0; i<menu.getCount(); i++){
-                ranges[i] = i;
-            }
             menu.select(this.input.ask("Select number: ", ranges));
         } while (!"y".equals(this.input.ask("Exit?(y): ")));
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws MenuOutException {
         new StartUI(new Tracker(), new ValidateInput()).init();
     }
 }
