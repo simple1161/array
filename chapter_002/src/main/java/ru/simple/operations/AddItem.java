@@ -1,8 +1,8 @@
-package ru.simple.tracker.operations;
+package ru.simple.operations;
 
-import ru.simple.tracker.models.Item;
-import ru.simple.tracker.start.Input;
-import ru.simple.tracker.start.Tracker;
+import ru.simple.models.Item;
+import ru.simple.start.Input;
+import ru.simple.start.Tracker;
 
 public class AddItem implements UserAction {
     public int key(){

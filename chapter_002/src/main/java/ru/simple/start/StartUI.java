@@ -1,4 +1,4 @@
-package ru.simple.tracker.start;
+package ru.simple.start;
 
 public class StartUI {
     private Input input;

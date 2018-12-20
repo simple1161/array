@@ -1,7 +1,6 @@
-package ru.simple.tracker.start;
+package ru.simple.start;
 
-import ru.simple.tracker.operations.*;
-
+import ru.simple.operations.*;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,8 +1,8 @@
-package ru.simple.tracker.operations;
+package ru.simple.operations;
 
-import ru.simple.tracker.models.Item;
-import ru.simple.tracker.start.Input;
-import ru.simple.tracker.start.Tracker;
+import ru.simple.models.Item;
+import ru.simple.start.Input;
+import ru.simple.start.Tracker;
 
 public   class FindId implements UserAction {
     public int key(){
@@ -13,11 +13,7 @@ public   class FindId implements UserAction {
         System.out.println("------------Поиск заявки по id --------------");
         String id = input.ask("Введите id заявки :");
         Item item = tracker.findById(id);
-        if(item != null){
-            System.out.println("Название заявки: "  + item.getName() + ", " + "Описание заявки: "  + item.getDescription() + ", "  + "id заявки: "  + item.getId());
-        } else {
-            System.out.println("Нет заявоки");
-        }
+        System.out.println("Название заявки: "  + item.getName() + ", " + "Описание заявки: "  + item.getDescription() + ", "  + "id заявки: "  + item.getId());
     }
 
     public String info(){

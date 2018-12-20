@@ -1,8 +1,8 @@
 package ru.simple;
 
 import org.junit.Test;
-import ru.simple.tracker.models.Item;
-import ru.simple.tracker.start.Tracker;
+import ru.simple.models.Item;
+import ru.simple.start.Tracker;
 
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertArrayEquals;

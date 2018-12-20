@@ -1,18 +1,18 @@
-package ru.simple.tracker.operations;
+package ru.simple.operations;
 
-import ru.simple.tracker.models.Item;
-import ru.simple.tracker.start.Input;
-import ru.simple.tracker.start.Tracker;
 
-public class FindName implements UserAction {
+import ru.simple.models.Item;
+import ru.simple.start.Input;
+import ru.simple.start.Tracker;
+
+public class ShowItem implements UserAction {
     public int key(){
-        return  5;
+        return  1;
     }
 
     public void execute(Input input, Tracker tracker){
-        System.out.println("Поиск по имени заявки.");
-        String name = input.ask("Введите имя заявки :");
-        Item[] items = tracker.findByName(name);
+        System.out.println("------------ Отображение всех заявок --------------");
+        Item[] items = tracker.showAll();
         if (items.length != 0) {
             for (Item item: items) {
                 System.out.println("Название заявки: "  + item.getName() + ", " + "Описание заявки: "  + item.getDescription() + ", "  + "id заявки: "  + item.getId());
@@ -23,7 +23,7 @@ public class FindName implements UserAction {
     }
 
     public String info(){
-        return String.format("%s. %s", this.key(), "Find items by name");
+        return String.format("%s. %s", this.key(), "Show item");
     }
 
 }

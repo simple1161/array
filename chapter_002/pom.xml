@@ -27,7 +27,7 @@
                             <finalName>tracker</finalName>
                             <transformers>
                                 <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-                                    <mainClass>ru.simple.tracker.start.StartUI</mainClass>
+                                    <mainClass>ru.simple.start.StartUI</mainClass>
                                 </transformer>
                             </transformers>
                         </configuration>

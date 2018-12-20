@@ -1,4 +1,4 @@
-package ru.simple.tracker.models;
+package ru.simple.models;
 
 import java.util.Random;
 
