@@ -15,8 +15,8 @@ public class StartUI {
         menu.fillActions();
         do {
             menu.show();
-            ranges = new int[menu.getCount()];
-            for(int i=0; i<menu.getCount(); i++){
+            ranges = new int[menu.getCountItem()];
+            for(int i=0; i<menu.getCountItem(); i++){
                 ranges[i] = i;
             }
             menu.select(this.input.ask("Select number: ", ranges));
@@ -24,6 +24,6 @@ public class StartUI {
     }
 
     public static void main(String[] args) {
-        new StartUI(new Tracker(), new ValidateInput()).init();
+        new StartUI(new Tracker(), new ValidateInput(new ConsoleInput())).init();
     }
 }
