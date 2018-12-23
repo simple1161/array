@@ -26,7 +26,7 @@ public class ValidateInputTest {
     }
 
     @Test
-    public void whenInvalidInput() {
+    public void whenInvalidInputWord() {
         ValidateInput input = new ValidateInput(
                 new StubInput(new String[] {"invalid", "1"})
         );
@@ -38,4 +38,19 @@ public class ValidateInputTest {
                 )
         );
     }
+
+    @Test
+    public void whenInvalidInputValue() {
+        ValidateInput input = new ValidateInput(
+                new StubInput(new String[] {"50", "invalid"})
+        );
+        input.ask("Enter", new int[] {1, 2, 3, 4, 5, 6});
+        assertThat(
+                this.mem.toString(),
+                is(
+                        String.format("Выбрирете значение из диапазона%n")
+                )
+        );
+    }
+
 }

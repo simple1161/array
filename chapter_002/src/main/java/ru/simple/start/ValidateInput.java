@@ -21,6 +21,7 @@ public class ValidateInput implements Input {
                 invalid = false;
             }catch (MenuOutException moe){
                 System.out.println("Выбрирете значение из диапазона");
+                invalid = false;
             }
             catch (NumberFormatException nfp){
                 System.out.println("Необходимо ввести корректное значение");
