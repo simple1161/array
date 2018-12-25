@@ -4,9 +4,10 @@ import ru.simple.models.Item;
 import ru.simple.start.Input;
 import ru.simple.start.Tracker;
 
-public class AddItem implements UserAction {
-    public int key(){
-        return  0;
+public class AddItem extends BaseAction {
+
+    public AddItem(int key, String name) {
+        super(key, name);
     }
 
     public void execute(Input input, Tracker tracker){
@@ -14,9 +15,4 @@ public class AddItem implements UserAction {
         String desc = input.ask("Введите описание заявки :");
         tracker.add(new Item(name, desc));
     }
-
-    public String info(){
-        return String.format("%s. %s", this.key(), "Add new item");
-    }
-
 }

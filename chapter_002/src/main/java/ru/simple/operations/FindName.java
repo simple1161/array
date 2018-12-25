@@ -4,9 +4,10 @@ import ru.simple.models.Item;
 import ru.simple.start.Input;
 import ru.simple.start.Tracker;
 
-public class FindName implements UserAction {
-    public int key(){
-        return  5;
+public class FindName extends BaseAction {
+
+    public FindName(int key, String name) {
+        super(key, name);
     }
 
     public void execute(Input input, Tracker tracker){
@@ -21,9 +22,4 @@ public class FindName implements UserAction {
             System.out.println("Нет доступных заявок");
         }
     }
-
-    public String info(){
-        return String.format("%s. %s", this.key(), "Find items by name");
-    }
-
 }

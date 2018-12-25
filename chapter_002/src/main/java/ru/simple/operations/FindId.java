@@ -4,9 +4,10 @@ import ru.simple.models.Item;
 import ru.simple.start.Input;
 import ru.simple.start.Tracker;
 
-public   class FindId implements UserAction {
-    public int key(){
-        return  4;
+public   class FindId extends BaseAction {
+
+    public FindId(int key, String name) {
+        super(key, name);
     }
 
     public void execute(Input input, Tracker tracker){
@@ -15,9 +16,4 @@ public   class FindId implements UserAction {
         Item item = tracker.findById(id);
         System.out.println("Название заявки: "  + item.getName() + ", " + "Описание заявки: "  + item.getDescription() + ", "  + "id заявки: "  + item.getId());
     }
-
-    public String info(){
-        return String.format("%s. %s", this.key(), "Find item by Id");
-    }
-
 }

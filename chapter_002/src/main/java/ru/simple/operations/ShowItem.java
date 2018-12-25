@@ -5,9 +5,10 @@ import ru.simple.models.Item;
 import ru.simple.start.Input;
 import ru.simple.start.Tracker;
 
-public class ShowItem implements UserAction {
-    public int key(){
-        return  1;
+public class ShowItem extends BaseAction {
+
+    public ShowItem(int key, String name) {
+        super(key, name);
     }
 
     public void execute(Input input, Tracker tracker){
@@ -20,10 +21,6 @@ public class ShowItem implements UserAction {
         } else {
             System.out.println("Нет доступных заявок");
         }
-    }
-
-    public String info(){
-        return String.format("%s. %s", this.key(), "Show item");
     }
 
 }
